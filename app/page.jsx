@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Hero from "@/components/Hero";
 import PostCard from "@/components/PostCard";
 import { getAllCategories, getFeaturedContent, getLatestContent } from "@/lib/content";
@@ -26,9 +27,9 @@ export default function Home() {
               <p className="text-uppercase small text-secondary mb-1">Featured</p>
               <h2 className="mb-0 fw-bold">Top stories this week</h2>
             </div>
-            <a href="/posts" className="btn btn-outline-dark rounded-pill px-4">
+            <Link href="/posts" className="btn btn-outline-dark rounded-pill px-4">
               View all stories
-            </a>
+            </Link>
           </div>
           <div className="row g-4">
             {featured.map((post) => (
@@ -98,13 +99,13 @@ export default function Home() {
                   <p className="text-uppercase small text-secondary mb-1">Categories</p>
                   <div className="d-flex flex-wrap gap-2">
                     {categories.map((category) => (
-                      <a
+                      <Link
                         key={category.slug}
                         href={`/categories/${category.slug}`}
                         className="badge rounded-pill text-bg-light border text-decoration-none px-3 py-2"
                       >
                         {category.name} ({category.count})
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
